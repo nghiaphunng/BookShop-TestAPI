@@ -20,7 +20,6 @@ import com.bookshop.demo.service.CartService;
 import com.bookshop.demo.service.OrderService;
 
 @Controller
-@RequestMapping(value = "/home")
 public class CustomerController {
 	@Autowired
 	private BookService bookService;

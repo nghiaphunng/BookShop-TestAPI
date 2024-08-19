@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.bookshop.demo.entity.User;
 import com.bookshop.demo.repository.UserRepository;
-import com.bookshop.demo.request.UserLogin;
 import com.bookshop.demo.request.UserRegister;
 import com.bookshop.demo.service.UserService;
 import com.bookshop.demo.utils.ProcessPassword;
@@ -32,14 +31,4 @@ public class UserServiceImpl implements UserService{
 			return true;
 		}
 	}
-
-	@Override
-	public boolean loginUser(UserLogin userLogin) {
-		User user = userRepository.findByUserName(userLogin.getUserName());
-		if(user == null) return false;
-		else {
-			return ProcessPassword.encodeUserPassword(userLogin.getUserPassword(), user.getUserPassword());
-		}
-	}
-
 }
